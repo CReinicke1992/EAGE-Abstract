@@ -18,16 +18,14 @@
 
 \section{Introduction}
 
-Blending is a recent seismic acquisition design, which allows seismic shots to interfere. I propose a new acquisition design based on blended crossline sources. 
-
-test git
+Blending is a recent seismic acquisition design, which allows seismic sources to interfere. Current blended acquisition designs blend sources in 2D (inline direction and time). I propose a 3D blended acquisition design which blends sources in crossline direction, inline direction and time. Figure \ref{fig:Intro-Configs} shows a conventional acquisition design and a possible acquisition design with blended crossline sources. In this abstract I will refer to the latter design as "wide crossline source array". The wide crossline source array allows to significantly reduce the equipment in the water without affecting the acquired area. Current processing techniques are not capable to deal with blended data. Consequently, the blended data must be deblended (separated) as if they were acquired in a conventional way. Thus, in this abstract I will present a 3D deblending method.
 
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
 		\includegraphics[width = \textwidth]{Plots/Config-Conventional}
-		\caption{}
+		\caption{Conventional acquisition \\design}
 		\label{fig:Intro-Config-Conventional}
 	\end{subfigure}
 	\qquad \qquad 
@@ -35,21 +33,15 @@ test git
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
 		\includegraphics[width = \textwidth]{Plots/Config-Xline-Blended}
-		\caption{}
+		\caption{Acquisition design with blended crossline sources}
 		\label{fig:Intro-Config-Xline-Blended}
 	\end{subfigure}
 	
-	\caption{caption}
+	\caption{}
 	\label{fig:Intro-Configs}
 	
 \end{figure}
 
-
-
-Current processing techniques are not capable to deal with blended data. Consequently, the blended data must be deblended (separated) as if they were acquired in a conventional way.  
-
-
-In contrast to existing blended-acquisition designs that only blend in 2D (inline direction and time), this design blends sources in 3D (inline direction, crossline direction and time). For this reason I propose a 3D deblending method. 
 
 \section{Method and/or Theory}
 

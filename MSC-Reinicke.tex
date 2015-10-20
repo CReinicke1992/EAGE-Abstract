@@ -1,13 +1,50 @@
 \documentclass{madrid15WS}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+%\usepackage[FIGTOPCAP, hang, nooneline]{subfig}
+\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{natbib}
+\usepackage{siunitx}
+%\usetikzlibrary{matrix}
+\usepackage{todonotes}
+\usepackage{caption}
+\usepackage{verbatim}
+\usepackage{rotating}
+
+
 \begin{document}
 
 \section{Introduction}
 
-Blending is a recent seismic acquisition design, which allows seismic shots to interfere. 
+Blending is a recent seismic acquisition design, which allows seismic shots to interfere. I propose a new acquisition design based on blended crossline sources. 
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width = \textwidth]{Plots/Config-Conventional}
+		\caption{}
+		\label{fig:Intro-Config-Conventional}
+	\end{subfigure}
+	\qquad \qquad 
+	\centering
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width = \textwidth]{Plots/Config-Xline-Blended}
+		\caption{}
+		\label{fig:Intro-Config-Xline-Blended}
+	\end{subfigure}
+	
+	\caption{caption}
+	\label{fig:Intro-Configs}
+	
+\end{figure}
 
 
 
-Current processing techniques are not capable to deal with blended data. Consequently, the blended data must be deblended (separated) as if they were acquired in a conventional way. I propose a new acquisition design based on blended crossline sources. 
+Current processing techniques are not capable to deal with blended data. Consequently, the blended data must be deblended (separated) as if they were acquired in a conventional way.  
 
 
 In contrast to existing blended-acquisition designs that only blend in 2D (inline direction and time), this design blends sources in 3D (inline direction, crossline direction and time). For this reason I propose a 3D deblending method. 

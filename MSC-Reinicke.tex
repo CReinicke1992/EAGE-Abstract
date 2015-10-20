@@ -49,7 +49,12 @@ Existing deblending methods are designed for 2D blended data. Therefore, I will 
 
 \section{Method and/or Theory}
 
-This is the first sentence of the method and/or theory section.
+\subsection{2D inspiration}
+
+The presented 3D deblending method is inspired by the 2D method of \citet{Mahdad-Deblending-Method}. The method of \citet{Mahdad-Deblending-Method} assumes that the blended data are acquired with random firing-time delays. The blended data, $\mathbf{P}_{bl}$, are sorted in a so-called pseudo-deblended data matrix, $\mathbf{P}_{ps}$, which has as many rows as receivers and as many columns as sources. Note that these data matrices refer to single frequency components. In the pseudo-deblended data matrix, $\mathbf{P}_{ps}$, the seismic response corresponding to one source is coherent. The responses of the other blended sources is broken up into incoherent events. Therefore, the method of \citet{Mahdad-Deblending-Method} uses a 2D $f$-$k$ filter and thresholding to remove the energy of the blended sources in an iterative approach. 
+
+\subsection{3D method}  
+
 
 \section{Examples (Optional)}
 
@@ -80,5 +85,10 @@ This is the first sentence of the acknowledgements.
 % or
 %
 % \bibliography{...}
+
+% Biblio
+\bibliographystyle{apalike}
+\bibliography{my_bib} % in MyBib.bib you add all your reference information, following the correct format. Sometimes, the bib file needs to be built several times, as well as the main file, before all references occur correctly in your PDF. 
+
 
 \end{document}

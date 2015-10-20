@@ -18,13 +18,11 @@
 
 \section{Introduction}
 
-Blending is a recent seismic acquisition design, which allows seismic sources to interfere. As a consequence the waiting time between successive shots can be reduced such that new acquisition designs become feasible. In this abstract I propose to blend marine sources in the crossline direction. In combination with the movement of the vessel the blending process becomes 3D (crossline direction, inline direction and time). Figure \ref{fig:Intro-Configs} illustrates a conventional acquisition design and one possible acquisition design with blended crossline sources. In the following I will refer to the acquisition design in Figure \ref{fig:Intro-Config-Xline-Blended} as wide crossline source array. The wide crossline source array requires significantly less equipment than the conventional acquisition design without reducing the amount of acquired data.
+Blending is a recent seismic acquisition design, which allows seismic sources to interfere. Currently, in marine seismic acquisition sources are blended in the inline direction, i.e. the data are blended in 2D (inline direction and time). In a pre-processing step the blended data must be deblended (separated) as if they were acquired in a conventional way. 
 
-Current blended acquisition designs blend sources in 2D (inline direction and time). 
+In this abstract I propose to blend marine sources in the crossline direction. Thus, in combination with the movement of the vessel the data are blended in 3D (crossline direction, inline direction and time). 3D blending allows to design many new acquisition configurations. Figure \ref{fig:Intro-Configs} shows a conventional acquisition design compared to one possible 3D blended acquisition design. In the following I will refer to the 3D blended acquisition design in \ref{fig:Intro-Config-Xline-Blended} as wide crossline source array. Both acquisition designs in Figure \ref{fig:Intro-Configs} acquire the same area. However, the wide crossline source array requires less equipment and benefits from a more symmetric distribution of sources and receivers.
 
-
-
-I propose a 3D blended acquisition design which blends sources in crossline direction, inline direction and time. Figure \ref{fig:Intro-Configs} shows a conventional acquisition design and a possible acquisition design with blended crossline sources. In this abstract I will refer to the latter design as "wide crossline source array". The wide crossline source array allows to significantly reduce the equipment in the water without affecting the acquired area. Current processing techniques are not capable to deal with blended data. Consequently, the blended data must be deblended (separated) as if they were acquired in a conventional way. Thus, in this abstract I will present a 3D deblending method.
+Existing deblending methods are designed for 2D blended data. Therefore, I propose a 3D deblending method.
 
 \begin{figure}[h!]
 	\centering
@@ -39,7 +37,7 @@ I propose a 3D blended acquisition design which blends sources in crossline dire
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
 		\includegraphics[width = \textwidth]{Plots/Config-Xline-Blended}
-		\caption{Acquisition design with blended crossline sources}
+		\caption{Wide crossline source array}
 		\label{fig:Intro-Config-Xline-Blended}
 	\end{subfigure}
 	

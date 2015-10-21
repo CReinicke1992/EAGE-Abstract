@@ -51,9 +51,12 @@ Existing deblending methods are designed for 2D blended data. Therefore, I will 
 
 \subsection{2D inspiration}
 
-The presented 3D deblending method is inspired by the 2D method of \citet{Mahdad-Deblending-Method}. The method of \citet{Mahdad-Deblending-Method} assumes that the blended data are acquired with random firing-time delays. Each frequency component of the blended data is sorted in a data matrix, $\mathbf{P}_{bl}$, which has the dimensions number of receivers by number of experiments. Next, the blended data, $\mathbf{P}_{bl}$, are sorted in a so-called pseudo-deblended data matrix, $\mathbf{P}_{ps}$, which has the dimensions of the unblended data, i.e. the number of receivers by the number of sources. In the pseudo-deblended data matrix, $\mathbf{P}_{ps}$, the seismic response corresponding to one source is coherent. The responses of the other blended sources breaks up into incoherent events. The method of \citet{Mahdad-Deblending-Method} uses a 2D $f$-$k$ filter and thresholding to remove the energy of the blended sources in an iterative approach. 
+The presented 3D deblending method is inspired by the 2D method of \citet{Mahdad-Deblending-Method}. The method of \citet{Mahdad-Deblending-Method} assumes that the blended data are acquired with random firing-time delays. Each frequency component of the blended data is sorted in a data matrix, $\mathbf{P}_{bl}$, which has the dimensions number of receivers by number of experiments. Next, the blended data, $\mathbf{P}_{bl}$, are used to build the so-called pseudo-deblended data matrix, $\mathbf{P}_{ps}$, which has the dimensions of the unblended data, i.e. number of receivers by number of sources. In the pseudo-deblended data matrix, $\mathbf{P}_{ps}$, the seismic response corresponding to one source is coherent. The responses belonging to the blended sources break up into incoherent events. \citet{Mahdad-Deblending-Method} uses coherency and sparsity constraints via a 2D $f$-$k$ filter and thresholding to reduce the energy of the blended sources iteratively. 
 
 \subsection{3D method}  
+
+For 3D blended data the pseudo-deblended data is built in analogy to the 2D case. However, now the data has a 5D character: time, receiver crossline number, receiver inline number, source crossline number and source inline  
+
 
 
 \section{Examples (Optional)}

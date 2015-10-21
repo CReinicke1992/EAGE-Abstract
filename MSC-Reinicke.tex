@@ -49,8 +49,52 @@ Existing deblending methods are designed for 2D blended data. Therefore, I will 
 
 \section{Method and/or Theory}
 
-In 3D acquisition the sources and receivers are distributed on a 2D surface. Thus, their locations are defined by their inline and crossline positions, (x, y). Each data point which is measured by a source receiver pair at a specific time is therefore described by five coordinates, time t, receiver inline and crossline position (xr, yr), and source inline and crossline position (xs, ys).
+The following method is based on my master thesis \citep{myself}.
 
+\subsection{Data sorting}
+
+In 3D acquisition the sources and receivers are distributed on a 2D surface. Thus, their locations are defined by their inline and crossline positions, ($x$, $y$). Each data point which is measured by a source receiver pair at a specific time is therefore described by five coordinates, time $t$, receiver inline and crossline position ($x_r$, $y_r$), and source inline and crossline position ($x_s$, $y_s$).
+
+The 5D data ”cube” is reorganized in a 2D data matrix according to \citet{Delphi-Format} (see Figure \ref{fig:DelphiFormat}). For this data sorting a 1D Fourier transform with respect to time is performed and a 4D frequency ”slice” is selected.
+
+The 4D ”slice” is sorted in a 2D data matrix, $\mathbf{P}$, with as many rows as receivers and as many columns as shots. The total number of shots is obtained by multiplying the number of shots fired in each crossline and the number of shots fired in each inline. The total number of receivers is obtained likewise. Assume there are $Ns_x$ shots per crossline. The shots of the first crossline are assigned to the first $Ns_x$ columns of the data matrix, the shots of the second crossline are assigned to the next $Ns_x$ columns of the data matrix, etc. The receivers are sorted in the rows of the data matrix analogously.
+
+One row in the data matrix, $\mathbf{P}$, in Figure \ref{fig:DelphiFormat} represents a 3D common-receiver gather. The data of this 3D common-receiver gather are shown in Figure \ref{fig:CRG_3D-view} in a 3D-view where the coordinates, $x$ and $y$, indicate the inline and crossline shot position respectively. For the described data sorting individual crossline slices are extracted from this data cube and assembled next to each other in a data matrix as shown in Figure \ref{fig:CRG_2D-view}. This view will be referred to as 3D CRG 2D-view. Each hyperbolic event in Figure \ref{fig:CRG_2D-view} refers to the response of the shots of one crossline.
+
+\begin{figure}[h!]
+	
+	\centering
+	\begin{subfigure}[t]{0.4\textwidth}
+		\centering
+		\includegraphics[width = \textwidth]{Plots/DelphiFormat-v3}
+		\caption{Data matrix $\mathbf{P}$}
+		\label{fig:DelphiFormat}
+	\end{subfigure}
+	\qquad  
+	\centering
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width = \textwidth]{Plots/data3d}
+		\caption{CRG 3D-view}
+		\label{fig:CRG_3D-view}
+	\end{subfigure}
+	
+	\centering
+	\begin{subfigure}[t]{0.8\textwidth}
+		\centering
+		\includegraphics[width = \textwidth]{Plots/data3d_Delphi}
+		\caption{CRG 2D-view}
+		\label{fig:CRG_2D-view}
+	\end{subfigure}
+	
+	\caption{(a) Illustration of the data matrix, $\mathbf{P}$, for 3D data \citep{Delphi-Format}. (b) 3D- view of a 3D common-receiver gather. (c) 2D-view of a 3D common-receiver gather.}
+	\label{fig:DataSorting}
+\end{figure}
+
+
+\subsection{Deblending strategy}
+
+The presented deblending strategy is similar to the 2D deblending method of \citet{Mahdad-Deblending-Method}: The blended data are used to build a pseudo-deblended dataset. \citet{Mahdad-Deblending-Method} shows that the energy of the blended sources becomes incoherent in a common-receiver gather of the pseudo-deblended data. 
 
 \section{Examples (Optional)}
 

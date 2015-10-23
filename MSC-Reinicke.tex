@@ -20,7 +20,7 @@
 
 Blending is a recent seismic acquisition design, which allows seismic sources to interfere. Currently, in marine seismic acquisition sources are blended in the inline direction, i.e. the data are blended in 2D (inline direction and time). A pre-processing step is required to deblend (separate) the blended data as if they were acquired in a conventional way. 
 
-In this abstract I propose to blend marine sources in the crossline direction. Thus, in combination with the movement of the vessel the data are blended in 3D (crossline direction, inline direction and time). 3D blending allows to design many new acquisition configurations. Figure \ref{fig:Intro-Configs} shows a conventional acquisition design compared to one possible 3D blended acquisition design. In the following I will refer to the acquisition design in Figure \ref{fig:Intro-Config-Xline-Blended} as wide crossline source array. Both acquisition designs in Figure \ref{fig:Intro-Configs} acquire the same area. However, the wide crossline source array requires less equipment and benefits from a more symmetric distribution of sources and receivers.
+In this abstract I propose to blend sources in the crossline direction. In combination with the movement of the vessel the data are blended in 3D (crossline direction, inline direction and time). 3D blending allows to design new acquisition configurations. Figure \ref{fig:Intro-Configs} shows a conventional acquisition design compared to one possible 3D blended acquisition design named crossline source array. The crossline source array acquires the same area as the conventional acquisition design but it requires less equipment. In addition, the crossline source array enhances the symmetry of source receiver distribution.
 
 Existing deblending methods are designed for 2D blended data. Therefore, I will introduce a 3D deblending method. 
 
@@ -37,7 +37,7 @@ Existing deblending methods are designed for 2D blended data. Therefore, I will 
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
 		\includegraphics[width = \textwidth]{Plots/Config-Xline-Blended}
-		\caption{Wide crossline source array}
+		\caption{Crossline source array}
 		\label{fig:Intro-Config-Xline-Blended}
 	\end{subfigure}
 	
@@ -195,7 +195,7 @@ $f$-$k_x$-$k_y$ filtering and thresholding are applied iteratively to estimate a
 
 \section{Example: Complex Synthetic Data}
 
-Insert results of the Wide crossline source array
+Insert results of the crossline source array
 Show: Inline section of unblended, blended, pseudo-deblended and deblended data
 
 \begin{figure}
@@ -223,7 +223,7 @@ Show: Inline section of unblended, blended, pseudo-deblended and deblended data
 		\label{fig:Example-Deblendedx}
 	\end{subfigure}
 		
-	\caption{\textbf{Wide Crossline Source Array}\\(a)-(c) show an inline slice of the unblended, pseudo-deblended, and deblended data respectively. The shown seismic sections are common-receiver gathers.}
+	\caption{\textbf{crossline source array}\\(a)-(c) show an inline slice of the unblended, pseudo-deblended, and deblended data respectively. The shown seismic sections are common-receiver gathers.}
 	\label{fig:Example-Inline-Slices}
 
 \end{figure}

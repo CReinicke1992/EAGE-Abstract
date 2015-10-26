@@ -98,16 +98,16 @@ The presented deblending strategy is similar to the 2D deblending method of \cit
 \subsection{3D $f$-$k_x$-$k_y$ filter}
 
 Assume a pseudo-deblended 3D common-receiver gather, $\mathbf{p}_{ps}(t, x_s, y_s)$, as input for the coherency constraint. These data are brought to the $f$-$k_x$-$k_y$ domain by applying a 3-dimensional Fourier transform. Next, a constant frequency slice is selected. This leaves a 2D matrix which captures the crossline and inline wavenumbers ($k_x$, $k_y$) as shown in Figure \ref{fig:FK-f_slice-data}.
-The lowest wavefield velocity and the frequency determine an upper limit, $k_{max}$, for the total wavenumber, $k_T$; 
+The lowest wavefield velocity and the frequency determine an upper limit, $k_{max}$, for the total wavenumber, $k_T$ ($k_{T} = \sqrt{k_x^2 + k_y^2} < k_{max}$). 
 
-\begin{equation}
-	k_{T} = \sqrt{k_x^2 + k_y^2} < k_{max}.
-	\label{eq:kT}
-\end{equation}Hence, the signal ”cone” is defined by a circle in the $k_x$-$k_y$ domain (see Figure \ref{fig:FK-f_slice-mask}), or by a 3D cone in the $f$-$k_x$-$k_y$ domain (see Figure \ref{fig:FK-f_slice-data3d}). In order to match the above described data sorting the 3D cone is sorted in a 2D-view as illustrated in Figure \ref{fig:FK-delphi-data} and Figure \ref{fig:FK-delphi-mask}. This 3D $f$-$k_x$-$k_y$ mask is applied to the pseudo-deblended data to attenuate the blending noise.
+%\begin{equation}
+%	k_{T} = \sqrt{k_x^2 + k_y^2} < k_{max}.
+%	\label{eq:kT}
+%\end{equation}Hence, the signal ”cone” is defined by a circle in the $k_x$-$k_y$ domain (see Figure \ref{fig:FK-f_slice-mask}), or by a 3D cone in the $f$-$k_x$-$k_y$ domain (see Figure \ref{fig:FK-f_slice-data3d}). In order to match the above described data sorting the 3D cone is sorted in a 2D-view as illustrated in Figure \ref{fig:FK-delphi-data} and Figure \ref{fig:FK-delphi-mask}. This 3D $f$-$k_x$-$k_y$ mask is applied to the pseudo-deblended data to attenuate the blending noise.
 
 \begin{figure}[h!]
 	\centering
-	\begin{subfigure}[t]{0.3\textwidth}
+	\begin{subfigure}[t]{0.25\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Plots/fkk/P_f_slice40}
 		\caption{}
@@ -115,7 +115,7 @@ Assume a pseudo-deblended 3D common-receiver gather, $\mathbf{p}_{ps}(t, x_s, y_
 	\end{subfigure}
 	%
 	\centering
-	\begin{subfigure}[t]{0.3\textwidth}
+	\begin{subfigure}[t]{0.25\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Plots/fkk/fkk-mask-slice40}
 		\caption{}
@@ -123,7 +123,7 @@ Assume a pseudo-deblended 3D common-receiver gather, $\mathbf{p}_{ps}(t, x_s, y_
 	\end{subfigure}
 	%
 	\centering
-	\begin{subfigure}[t]{0.3\textwidth}
+	\begin{subfigure}[t]{0.25\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Plots/fkk/3dfk-cone}
 		\caption{}
@@ -159,8 +159,12 @@ $f$-$k_x$-$k_y$ filtering and the sparsity constraint are applied iteratively to
 
 \section{Example: Complex Synthetic Data}
 
-Insert results of the crossline source array
-Show: Inline section of unblended, blended, pseudo-deblended and deblended data
+The following data example is extracted from a SEG SEAM dataset. The data are acquired with a source grid of 21 sources along the crossline direction and 81 sources along the inline direction. The source spacing is 25 m in both directions, and the receiver is placed in one corner of the source grid. The source are fired crossline-wise, i.e. first all sources of crossline one are fired, next, all sources of crossline two, etc. The 21 shots within each crossline are blended in three experiments, i.e. there are seven shots per experiment. The firing-time delays between the blended shots are optimized according to \citet{myself}.
+
+Figure \ref{fig:Example-Inline-Slices} shows data slices of the unblended, blended, pseudo-deblended and deblended data at the crossline position  $y_r = \SI{2000}{\metre}$. Each of these section belongs to a common-receiver gather. Figure \ref{fig:Example-Time-Slices} illustrates time slices through $t = \SI{1.8}{\second}$ of the data.
+
+A comparison of the unblended and deblended data demonstrates the strength of the 3D deblending method. The deblending performance is evaluated with a so-called quality factor \citep{IbrahimQuality} which is \SI{14.2}{\decibel}. Note that the quality factor is defined similarly to SNR. In my master thesis \citep{myself} I also showed that deblending performs significantly better with a 3D $f$-$k_x$-$k_y$ filter than with a 2D $f$-$k$ filter.
+
 
 \begin{figure}[h!]
 	\centering
@@ -242,11 +246,11 @@ Show: Inline section of unblended, blended, pseudo-deblended and deblended data
 
 \section{Conclusions}
 
-This is the first sentence of the conclusions.
+The presented 3D deblending method takes advantage of a coherency constraint of the data in the $f$-$k_x$-$k_y$ domain, in contrast to 2D deblending methods, which only use coherency constraints in the $f$-$k$ domain. The strong performance of the 3D deblending method rises the opportunity to design 3D blended acquisition configurations.
 
-\section{Acknowledgements (Optional)}
+\section{Acknowledgements}
+I would like to thank G.J. Groenestijn for his support, and PGS Leiden for the opportunity to conduct research in their department.
 
-This is the first sentence of the acknowledgements.
 
 % \begin{thebibliography}{6pt}
 %   \bibitem[{<reference>}]{<cite>} ...

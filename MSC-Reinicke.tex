@@ -55,9 +55,7 @@ The following method is based on my master thesis \citep{myself}.
 
 In 3D acquisition the sources and receivers are distributed on a 2D surface. Thus, their locations are defined by their inline and crossline positions, ($x$, $y$). Each data point which is measured by a source receiver pair at a specific time is therefore described by five coordinates, time $t$, receiver inline and crossline position ($x_r$, $y_r$), and source inline and crossline position ($x_s$, $y_s$).
 
-The 5D data ”cube” is reorganized in a 2D data matrix according to \citet{Delphi-Format} (see Figure \ref{fig:DelphiFormat}). For this data sorting a 1D Fourier transform with respect to time is performed and a 4D frequency ”slice” is selected.
-
-The 4D ”slice” is sorted in a 2D data matrix, $\mathbf{P}$, with as many rows as receivers and as many columns as shots. The total number of shots is obtained by multiplying the number of shots fired in each crossline and the number of shots fired in each inline. The total number of receivers is obtained likewise. Assume there are $Ns_x$ shots per crossline. The shots of the first crossline are assigned to the first $Ns_x$ columns of the data matrix, the shots of the second crossline are assigned to the next $Ns_x$ columns of the data matrix, etc. The receivers are sorted in the rows of the data matrix analogously.
+The 5D data ”cube” is reorganized in a 2D data matrix according to \citet{Delphi-Format} (see Figure \ref{fig:DelphiFormat}). For this data sorting a 1D Fourier transform with respect to time is performed and a 4D frequency ”slice” is selected. The 4D ”slice” is sorted in a 2D data matrix, $\mathbf{P}$, with as many rows as receivers and as many columns as shots. The total number of shots is obtained by multiplying the number of shots fired in each crossline, $Ns_x$, and the number of shots fired in each inline, $Ns_y$. The total number of receivers is obtained likewise. The shots of the first crossline are assigned to the first $Ns_x$ columns of the data matrix, the shots of the second crossline are assigned to the next $Ns_x$ columns of the data matrix, etc. The receivers are sorted in the rows of the data matrix analogously.
 
 One row in the data matrix, $\mathbf{P}$, in Figure \ref{fig:DelphiFormat} represents a 3D common-receiver gather. The data of this 3D common-receiver gather are shown in Figure \ref{fig:CRG_3D-view} in a 3D-view where the coordinates, $x$ and $y$, indicate the inline and crossline shot position respectively. For the described data sorting individual crossline slices are extracted from this data cube and assembled next to each other in a data matrix as shown in Figure \ref{fig:CRG_2D-view}. This view will be referred to as 3D CRG 2D-view. Each hyperbolic event in Figure \ref{fig:CRG_2D-view} refers to the response of the shots of one crossline.
 
@@ -94,33 +92,8 @@ One row in the data matrix, $\mathbf{P}$, in Figure \ref{fig:DelphiFormat} repre
 
 \subsection{Deblending strategy}
 
-The presented deblending strategy is similar to the 2D deblending method of \citet{Mahdad-Deblending-Method}: The blended data are used to build a pseudo-deblended dataset. The energy of the blended sources is incoherent in a pseudo-deblended common-receiver gather. This incoherent energy is referred to as blending noise. Figure \ref{fig:3D-CRG-Pps} shows an example of a pseudo-deblended 3D common-receiver gather in 2D-view. I will use a coherency constraint in the $f$-$k_x$-$k_y$ domain, and a sparsity constraint in the $x$-$t$ domain to remove the blending noise from the pseudo-deblended data. Since for 3D deblending the sparsity constraint is applied equivalently to the 2D case of \citet{Mahdad-Deblending-Method} I will not present it.
+The presented deblending strategy is similar to the 2D deblending method of \citet{Mahdad-Deblending-Method}: From the blended data a pseudo-deblended dataset is built. The energy of the blended sources is incoherent in a pseudo-deblended common-receiver gather. This incoherent energy is referred to as blending noise. I will use a coherency constraint in the $f$-$k_x$-$k_y$ domain, and a sparsity constraint in the $x$-$t$ domain to remove the blending noise from the pseudo-deblended data. Since for 3D deblending the sparsity constraint is applied equivalently to the 2D case of \citet{Mahdad-Deblending-Method} I will not present it.
 
-\begin{figure}[h!]
-	\centering
-	\begin{subfigure}[t]{0.8\textwidth}
-	\includegraphics[width=\textwidth]{Plots/3dDeblending/Pseudo-Deblendedv5_xt_100}
-	\caption{}
-	\label{fig:3D-CRG-Pps}
-	\end{subfigure}
-	
-	\centering
-	\begin{subfigure}[t]{0.8\textwidth}
-	\includegraphics[width=\textwidth]{Plots/3dDeblending/Deblendedv5_xt_100}
-	\caption{}
-	\label{fig:3D-CRG-Pdebl}
-	\end{subfigure}
-	
-	\centering
-	\begin{subfigure}[t]{0.8\textwidth}
-	\includegraphics[width=\textwidth]{Plots/3dDeblending/Unblended_Delphi_zoom-font14}
-	\caption{}
-	\label{fig:3D-CRG-Punbl}
-	\end{subfigure}
-	
-	\caption{Illustration of 3D common-receiver gathers in 2D-view for (a) pseudo-deblended data, (b) deblended data, and (c) unblended data.}
-	\label{fig:3D-CRG-2D-view}
-\end{figure}
 
 \subsection{3D $f$-$k_x$-$k_y$ filter}
 
@@ -130,7 +103,7 @@ Assume a pseudo-deblended 3D common-receiver gather, $\mathbf{p}_{ps}(t, x_s, y_
 \begin{equation}
 	k_{T} = \sqrt{k_x^2 + k_y^2} < k_{max}.
 	\label{eq:kT}
-\end{equation}Hence, the signal ”cone” is defined by a circle in the $k_x$-$k_y$ domain (see Figure \ref{fig:FK-f_slice-mask}), or by a 3D cone in the $f$-$k_x$-$k_y$ domain (see Figure \ref{fig:FK-f_slice-data3d}). The 3D cone is sorted in a 2D-view as illustrated in Figure \ref{fig:FK-delphi-data} and Figure \ref{fig:FK-delphi-mask}. This 3D $f$-$k_x$-$k_y$ mask is applied to the pseudo-deblended data to attenuate the blending noise.
+\end{equation}Hence, the signal ”cone” is defined by a circle in the $k_x$-$k_y$ domain (see Figure \ref{fig:FK-f_slice-mask}), or by a 3D cone in the $f$-$k_x$-$k_y$ domain (see Figure \ref{fig:FK-f_slice-data3d}). In order to match the above described data sorting the 3D cone is sorted in a 2D-view as illustrated in Figure \ref{fig:FK-delphi-data} and Figure \ref{fig:FK-delphi-mask}. This 3D $f$-$k_x$-$k_y$ mask is applied to the pseudo-deblended data to attenuate the blending noise.
 
 \begin{figure}[h!]
 	\centering
@@ -181,7 +154,7 @@ Assume a pseudo-deblended 3D common-receiver gather, $\mathbf{p}_{ps}(t, x_s, y_
 
 \subsection{Iterations}
 
-$f$-$k_x$-$k_y$ filtering and thresholding are applied iteratively to estimate and subtract the blending noise. Since this step works in the 3D case analogously to the 2D case presented by \citet{Mahdad-Deblending-Method} I will not describe it here.
+$f$-$k_x$-$k_y$ filtering and the sparsity constraint are applied iteratively to estimate and subtract the blending noise. This step is performed analogously to the 2D case presented by \citet{Mahdad-Deblending-Method}.
 
 
 \section{Example: Complex Synthetic Data}
@@ -189,7 +162,7 @@ $f$-$k_x$-$k_y$ filtering and thresholding are applied iteratively to estimate a
 Insert results of the crossline source array
 Show: Inline section of unblended, blended, pseudo-deblended and deblended data
 
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{subfigure}[t]{0.2\textwidth}
 		\centering
@@ -222,12 +195,12 @@ Show: Inline section of unblended, blended, pseudo-deblended and deblended data
 		\label{fig:Example-Deblendedx}
 	\end{subfigure}
 		
-	\caption{\textbf{Crossline source array}\\(a)-(d) show an crossline slices of the unblended, blended, pseudo-deblended, and deblended data respectively. The shown seismic sections are common-receiver gathers.}
+	\caption{\textbf{Crossline source array}. (a)-(d) show crossline slices at the crossline position $y_r = \SI{2000}{\metre}$ of the SEAM data. The shown seismic sections are common-receiver gathers.}
 	\label{fig:Example-Inline-Slices}
 
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{subfigure}[t]{0.4\textwidth}
 		\centering
@@ -260,7 +233,7 @@ Show: Inline section of unblended, blended, pseudo-deblended and deblended data
 		\label{fig:Example-Deblendedt}
 	\end{subfigure}
 		
-	\caption{\textbf{Time slices}\\(a)-(d) show an time slice through $t = \SI{1.8}{\second}$ of the data of Figure \ref{fig:Example-Inline-Slices}}
+	\caption{\textbf{Time slices}. (a)-(d) show an time slice through $t = \SI{1.8}{\second}$ of the data of Figure \ref{fig:Example-Inline-Slices}.}
 	\label{fig:Example-Time-Slices}
 
 \end{figure}
